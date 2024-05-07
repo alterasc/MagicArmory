@@ -202,4 +202,13 @@ public static class Utils
             blueprintBuff.IsClassFeature = true;
         }
     }
+
+    public static void ApplyForAll<T>(string[] ids, System.Action<T> action) where T : SimpleBlueprint
+    {
+        foreach (var id in ids)
+        {
+            var bp = Utils.GetBlueprint<T>(id);
+            action.Invoke(bp);
+        }
+    }
 }

@@ -18,4 +18,13 @@ Vendors:
 - Gemyl Hawkes (A1 tavern barman)
 - Arcane Weaver (A3 and onwards)
 
+### [Boots of Levitation](https://aonprd.com/MagicWondrousDisplay.aspx?FinalName=Boots%20of%20Levitation)
+
+These boots grant the wearer immunity to difficult terrain, ground effects and pits.
+
+Unlike PnP effect here is permanent.
+
+Vendors:  
+- Arcane Weaver (A3 and onwards)
+
 If you installed mod during the game and items are not present, just cheat them in.
