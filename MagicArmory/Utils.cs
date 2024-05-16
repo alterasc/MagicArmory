@@ -157,6 +157,22 @@ public static class Utils
         return val2;
     }
 
+    public static T ReplaceBlueprint<T>(string id, Action<T> init = null) where T : SimpleBlueprint, new()
+    {
+        var original = GetBlueprint<SimpleBlueprint>(id);
+        T val = new()
+        {
+            name = original.name,
+            AssetGuid = original.AssetGuid,
+        };
+        T val2 = val;
+        ResourcesLibrary.BlueprintsCache.AddCachedBlueprint(val2.AssetGuid, val);
+        val2.OnEnable();
+        SetRequiredBlueprintFields(val2);
+        init?.Invoke(val2);
+        return val2;
+    }
+
     public static T GetModBlueprintReference<T>(string name) where T : BlueprintReferenceBase
     {
         T val = Activator.CreateInstance<T>();

@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.JsonSystem;
+using MagicArmory.Handwraps;
 
 namespace MagicArmory;
 internal class Patches
@@ -46,6 +47,7 @@ internal class Patches
                     a => a.Body.m_Feet = bootsRef
                 );
             }
+            HandwrapsAdder.CreateEnchantmentsAndHandwraps();
         }
     }
 }
