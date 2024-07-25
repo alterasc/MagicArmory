@@ -13,6 +13,7 @@ static class Main
     internal static Harmony HarmonyInstance;
     internal static UnityModManager.ModEntry.ModLogger log;
     internal static Guid ModNamespaceGuid;
+    internal static SettingsModMenu Settings = new();
 
     static bool Load(UnityModManager.ModEntry modEntry)
     {

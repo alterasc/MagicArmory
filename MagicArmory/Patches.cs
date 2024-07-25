@@ -18,6 +18,8 @@ internal class Patches
         if (_initialized) return;
         _initialized = true;
 
+        Main.Settings.Initialize();
+
         var mulebackCord = MulebackCords.MulebackCords.AddMulebackCords();
         var beltofHurling = BeltOfMightyHurling.BeltOfMightyHurling.AddBeltOfMightyHurling();
         var bootsOfLevitation = BootsOfLevitation.BootsOfLevitationAdder.Add();
