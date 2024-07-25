@@ -1,6 +1,5 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using System;
@@ -135,12 +134,6 @@ public static class Utils
 
         array2[num] = value;
         return array2;
-    }
-    internal static LocalizedString CreateLocalizedString(string key, string value)
-    {
-        var localizedString = new LocalizedString() { m_Key = key };
-        LocalizationManager.CurrentPack.PutString(key, value);
-        return localizedString;
     }
 
     public static T CreateBlueprint<T>(string name, Action<T> init = null) where T : SimpleBlueprint, new()

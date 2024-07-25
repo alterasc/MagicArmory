@@ -30,8 +30,8 @@ internal class BeltOfMightyHurling
         var cordofStubbornFury = Utils.GetBlueprint<BlueprintItemEquipmentBelt>("3b7820965662afe4ab17627103e44228");
         var item = Utils.CreateBlueprint<BlueprintItemEquipmentBelt>("BeltofMightyHurlingLesserItem", bp =>
         {
-            bp.m_DisplayNameText = Utils.CreateLocalizedString($"{bp.name}Title", "Lesser Belt of Mighty Hurling");
-            bp.m_DescriptionText = Utils.CreateLocalizedString($"{bp.name}Description", "This thick leather belt is buckled with a bright bronze clasp in the shape of a fist.\r\n\r\nWhen worn, it grants its wearer a +2 enhancement bonus to Strength and allows him to apply his Strength modifier as a bonus on attack rolls instead of his Dexterity modifier when making ranged attacks with thrown weapons.");
+            bp.m_DisplayNameText = "Lesser Belt of Mighty Hurling".ToLocalized();
+            bp.m_DescriptionText = "This thick leather belt is buckled with a bright bronze clasp in the shape of a fist.\r\n\r\nWhen worn, it grants its wearer a +2 enhancement bonus to Strength and allows him to apply his Strength modifier as a bonus on attack rolls instead of his Dexterity modifier when making ranged attacks with thrown weapons.".ToLocalized();
             bp.m_Icon = cordofStubbornFury.m_Icon;
             bp.m_Cost = 14000;
             bp.m_Weight = 1.0f;

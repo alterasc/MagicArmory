@@ -50,7 +50,7 @@ internal class HandwrapsAdder
 
     internal static void CreateEnchantmentsAndHandwraps()
     {
-        var handwrapsTypeString = Utils.CreateLocalizedString("MagicArmoryHandwrapsType", "Handwraps");
+        var handwrapsTypeString = "Handwraps".ToLocalized();
         // gloves of dueling
         var glovesIcon = Utils.GetBlueprint<BlueprintItemEquipmentGloves>("c33129949c59ee044900e741691a64d3").m_Icon;
         var scabbard_ArodensWrathItem = Utils.GetBlueprint<BlueprintItemEquipmentUsable>("c5eb4864c764a9945809525dda77acc8");
@@ -59,11 +59,12 @@ internal class HandwrapsAdder
         {
             bp.m_NonIdentifiedNameText = handwrapsTypeString;
             bp.m_Cost = 1;
-            bp.m_Weight = 1.0f;
+            bp.m_Weight = 0f;
             bp.m_Destructible = false;
             bp.m_MiscellaneousType = BlueprintItem.MiscellaneousItemType.None;
             bp.m_InventoryPutSound = scabbard_ArodensWrathItem.m_InventoryPutSound;
             bp.m_InventoryTakeSound = scabbard_ArodensWrathItem.m_InventoryTakeSound;
+            bp.m_EquipmentEntity = scabbard_ArodensWrathItem.m_EquipmentEntity;
             bp.m_Icon = glovesIcon;
             bp.m_BeltItemPrefab = new();
             bp.Type = UsableItemType.Other;
@@ -106,7 +107,6 @@ internal class HandwrapsAdder
                 bp.m_DescriptionText = finneanLongswordStage1.m_DescriptionText;
                 bp.m_FlavorText = finneanLongswordStage1.m_FlavorText;
                 bp.m_Cost = 0;
-                bp.m_Weight = 0f;
                 bp.m_Enchantments = [
                     coldIronEnch,
                     enchPlus1,
@@ -120,7 +120,6 @@ internal class HandwrapsAdder
                 bp.m_DescriptionText = finneanLongswordStage2.m_DescriptionText;
                 bp.m_FlavorText = finneanLongswordStage2.m_FlavorText;
                 bp.m_Cost = 0;
-                bp.m_Weight = 0f;
                 bp.m_Enchantments = [
                     enchPlus3,
                     ghostTouchEnch,
@@ -135,7 +134,6 @@ internal class HandwrapsAdder
                 bp.m_DescriptionText = finneanLongswordStage3Base.m_DescriptionText;
                 bp.m_FlavorText = finneanLongswordStage3Base.m_FlavorText;
                 bp.m_Cost = 0;
-                bp.m_Weight = 0f;
                 bp.m_Enchantments = [
                     enchPlus5,
                     brilliantEnergyEnch,
@@ -149,7 +147,6 @@ internal class HandwrapsAdder
                 bp.m_DescriptionText = finneanLongswordStage3Lich.m_DescriptionText;
                 bp.m_FlavorText = finneanLongswordStage3Lich.m_FlavorText;
                 bp.m_Cost = 0;
-                bp.m_Weight = 0f;
                 bp.m_Enchantments = [
                     enchPlus5,
                     brilliantEnergyEnch
@@ -364,8 +361,8 @@ internal class HandwrapsAdder
 
         #region Basic Enhancement version
         {
-            var handwrapsItemLName = Utils.CreateLocalizedString("MagicArmoryHandwrapsName", "Handwraps");
-            var handwrapsItemLDescription = Utils.CreateLocalizedString("MagicArmoryHandwrapsDescription", "Handwraps enchantments apply only to unarmed attacks.");
+            var handwrapsItemLName = "Handwraps".ToLocalized();
+            var handwrapsItemLDescription = "Handwraps enchantments apply only to unarmed attacks.".ToLocalized();
             int[] prices = [2000, 8000, 18000, 32000, 50000];
             var normalHandwrapsList = new List<BlueprintItemEquipmentUsableReference>();
             for (int i = 1; i <= 5; i++)
@@ -375,7 +372,7 @@ internal class HandwrapsAdder
                     bp.m_DisplayNameText = handwrapsItemLName;
                     bp.m_DescriptionText = handwrapsItemLDescription;
                     bp.m_FlavorText = new();
-                    bp.m_Cost = prices[i - 1];                    
+                    bp.m_Cost = prices[i - 1];
                     bp.m_Enchantments = [
                         enchantments[i - 1].ToReference<BlueprintEquipmentEnchantmentReference>()
                     ];
