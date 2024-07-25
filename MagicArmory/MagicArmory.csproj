@@ -44,6 +44,10 @@
 			<HintPath>$(WrathInstallDir)\Wrath_Data\Managed\UnityModManager\0Harmony.dll</HintPath>
 			<Private>False</Private>
 		</Reference>
+		<Reference Include="ModMenu">
+			<HintPath>$(WrathInstallDir)\Mods\ModMenu\ModMenu.dll</HintPath>
+			<Private>False</Private>
+		</Reference>
 	</ItemGroup>
 	<ItemGroup>
 		<PubliciseInputAssemblies Include="$(WrathInstallDir)\Wrath_Data\Managed\Assembly-CSharp.dll" />
