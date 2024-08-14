@@ -9,7 +9,7 @@ using Kingmaker.UnitLogic.FactLogic;
 namespace MagicArmory.BootsOfLevitation;
 internal class BootsOfLevitationAdder
 {
-    internal static BlueprintItemEquipmentWrist Add()
+    internal static BlueprintItemEquipmentFeet Add()
     {
         var feature = Utils.CreateBlueprint<BlueprintFeature>("BootsOfLevitationFeature", bp =>
         {
@@ -42,7 +42,7 @@ internal class BootsOfLevitationAdder
 
         var bootsOfTheLightStepItem = Utils.GetBlueprint<BlueprintItemEquipmentFeet>("815cc85ce13ab64428253aea3b6708a8");
 
-        var item = Utils.CreateBlueprint<BlueprintItemEquipmentWrist>("BootsOfLevitationItem", bp =>
+        var item = Utils.CreateBlueprint<BlueprintItemEquipmentFeet>("BootsOfLevitationItem", bp =>
         {
             bp.m_DisplayNameText = "Boots of Levitation".ToLocalized();
             bp.m_DescriptionText = "These boots grant the wearer immunity to difficult terrain and ground effects.".ToLocalized();
