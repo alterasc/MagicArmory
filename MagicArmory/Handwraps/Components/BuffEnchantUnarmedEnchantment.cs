@@ -8,8 +8,12 @@ using Kingmaker.UnitLogic;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace MagicArmory.Handwraps;
+namespace MagicArmory.Handwraps.Components;
 
+/// <summary>
+/// Item enchantment that applies referenced weapon enchantment to unarmed strikes
+/// This enchantment goes on items, not hands themselves
+/// </summary>
 [TypeId("a8673f4e242a44bc9dc4bb4390384a3c")]
 public class BuffEnchantUnarmedEnchantment :
     ItemEnchantmentComponentDelegate<ItemEntity, BuffEnchantUnarmedEnchantmentData>,
@@ -19,56 +23,58 @@ public class BuffEnchantUnarmedEnchantment :
     [SerializeField]
     public BlueprintItemEnchantmentReference m_EnchantmentBlueprint;
 
-    public override void OnActivate()
+    public override void OnTurnOn()
     {
         AddEnchantment();
     }
 
+    public override void OnTurnOff()
+    {
+        Data.Enchantment?.Owner?.RemoveEnchantment(Data.Enchantment);
+        Data.Enchantment = null;
+    }
+
     private void AddEnchantment()
     {
-        ItemEntityWeapon maybeWeapon = this.Owner?.Wielder?.Body?.PrimaryHand?.MaybeWeapon;
+        ItemEntityWeapon maybeWeapon = Owner?.Wielder?.Body?.PrimaryHand?.MaybeWeapon;
         if (maybeWeapon != null && maybeWeapon.Blueprint.IsUnarmed)
-            this.Data.Enchantment = maybeWeapon.AddEnchantment(m_EnchantmentBlueprint?.Get(), this.Context);
+            Data.Enchantment = maybeWeapon.AddEnchantment(m_EnchantmentBlueprint?.Get(), Context);
     }
 
     private void Refresh()
     {
-        if (this.Data.Enchantment == null)
+        if (Data.Enchantment == null)
         {
             AddEnchantment();
         }
         else
         {
-            ItemEntityWeapon maybeWeapon = this.Owner?.Wielder?.Body?.PrimaryHand?.MaybeWeapon;
-            if (maybeWeapon != null && maybeWeapon.Blueprint.IsUnarmed && !maybeWeapon.m_Enchantments.HasFact(this.Data.Enchantment))
+            ItemEntityWeapon maybeWeapon = Owner?.Wielder?.Body?.PrimaryHand?.MaybeWeapon;
+            if (maybeWeapon != null && maybeWeapon.Blueprint.IsUnarmed)
             {
-                this.Data.Enchantment = maybeWeapon.AddEnchantment(m_EnchantmentBlueprint?.Get(), this.Context);
+                if (!maybeWeapon.m_Enchantments.HasFact(Data.Enchantment))
+                {
+                    Data.Enchantment = maybeWeapon.AddEnchantment(m_EnchantmentBlueprint?.Get(), Context);
+                }
             }
             else
             {
-
-                this.Data.Enchantment?.Owner?.RemoveEnchantment(this.Data.Enchantment);
-                this.Data.Enchantment = null;
+                Data.Enchantment?.Owner?.RemoveEnchantment(Data.Enchantment);
+                Data.Enchantment = null;
             }
         }
     }
 
-    public override void OnDeactivate()
-    {
-        this.Data.Enchantment?.Owner?.RemoveEnchantment(this.Data.Enchantment);
-        this.Data.Enchantment = null;
-    }
-
     void IUnitEquipmentHandler.HandleEquipmentSlotUpdated(ItemSlot slot, ItemEntity previousItem)
     {
-        if (slot.Owner != this.Owner.Wielder) return;
-        if (slot != this.Owner.Wielder.Body.CurrentHandsEquipmentSet.PrimaryHand) return;
+        if (slot.Owner != Owner.Wielder) return;
+        if (slot != Owner.Wielder.Body.CurrentHandsEquipmentSet.PrimaryHand) return;
         Refresh();
     }
 
     void IUnitActiveEquipmentSetHandler.HandleUnitChangeActiveEquipmentSet(UnitDescriptor unit)
     {
-        if (unit != this.Owner.Wielder) return;
+        if (unit != Owner.Wielder) return;
         Refresh();
     }
 }
