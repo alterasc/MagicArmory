@@ -60,7 +60,7 @@ internal partial class HandwrapsAdder
         Data.finneanChapter3Ench = CreateUnarmedOnlyEnchantment("MagicArmoryHandwrapsFinneanChapter3", Utils.GetBlueprint<BlueprintWeaponEnchantment>("b183bd491793d194c9e4c96cd11769b1")).ToReference<BlueprintEquipmentEnchantmentReference>();
         Data.brilliantEnergyEnch = CreateUnarmedOnlyEnchantment("MagicArmoryHandwrapsBrilliantEnergy", Utils.GetBlueprint<BlueprintWeaponEnchantment>("66e9e299c9002ea4bb65b6f300e43770")).ToReference<BlueprintEquipmentEnchantmentReference>();
         Data.masterworkEnch = CreateUnarmedOnlyEnchantment("MagicArmoryHandwrapsMasterwork", Utils.GetBlueprint<BlueprintWeaponEnchantment>("6b38844e2bffbac48b63036b66e735be")).ToReference<BlueprintEquipmentEnchantmentReference>();
-        
+
         Finnean.CreateFinnean(Data);
         Radiance.CreateRadiance(Data);
 

@@ -17,7 +17,7 @@ namespace MagicArmory.Handwraps.Components;
 /// </summary>
 [TypeId("6e4604cb24034a2bb4934c495d55b59d")]
 public class BuffEnchantUnarmed : UnitBuffComponentDelegate<BuffEnchantUnarmedData>,
-    IUnitEquipmentHandler,
+    IUnitEmptyHandWeaponHandler,
     IUnitActiveEquipmentSetHandler
 {
     /// <summary>
@@ -88,10 +88,8 @@ public class BuffEnchantUnarmed : UnitBuffComponentDelegate<BuffEnchantUnarmedDa
         Data.Enchantment = null;
     }
 
-    void IUnitEquipmentHandler.HandleEquipmentSlotUpdated(ItemSlot slot, ItemEntity previousItem)
+    void IUnitEmptyHandWeaponHandler.HandleUnitEmptyHandWeaponUpdated()
     {
-        if (slot.Owner != Owner) return;
-        if (slot != Owner.Body.CurrentHandsEquipmentSet.PrimaryHand) return;
         Refresh();
     }
 
