@@ -24,6 +24,10 @@ public class MulebackCordsComponent : UnitFactComponentDelegate<MulebackCordsCom
         if (unitPartAdditionalEncumbrance != null && Data != null)
         {
             unitPartAdditionalEncumbrance.AdditionalEncumbrance -= Data.Value;
+            if (unitPartAdditionalEncumbrance.AdditionalEncumbrance == 0)
+            {
+                Owner.Remove<UnitPartEncumbranceModifier>();
+            }
         }
     }
 
