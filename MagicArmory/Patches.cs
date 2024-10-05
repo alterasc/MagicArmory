@@ -2,7 +2,6 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.JsonSystem;
-using MagicArmory.Handwraps;
 
 namespace MagicArmory;
 
@@ -17,8 +16,6 @@ internal class Patches
     {
         if (_initialized) return;
         _initialized = true;
-
-        Main.Settings.Initialize();
 
         var mulebackCord = MulebackCords.MulebackCords.AddMulebackCords();
         var beltofHurling = BeltOfMightyHurling.BeltOfMightyHurling.AddBeltOfMightyHurling();
@@ -54,6 +51,5 @@ internal class Patches
                 a => a.Body.m_Feet = bootsRef
             );
         }
-        HandwrapsAdder.CreateEnchantmentsAndHandwraps();
     }
 }
