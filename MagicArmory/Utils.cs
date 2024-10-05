@@ -1,5 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using System;
@@ -195,20 +197,29 @@ public static class Utils
 
     private static void SetRequiredBlueprintFields(SimpleBlueprint blueprint)
     {
-        BlueprintBuff blueprintBuff = blueprint as BlueprintBuff;
-        if (blueprintBuff == null)
+        switch (blueprint)
         {
-            BlueprintFeature blueprintFeature = blueprint as BlueprintFeature;
-            if (blueprintFeature != null)
-            {
+            case BlueprintBuff blueprintBuff:
+                blueprintBuff.FxOnStart = new PrefabLink();
+                blueprintBuff.FxOnRemove = new PrefabLink();
+                blueprintBuff.IsClassFeature = true;
+                break;
+            case BlueprintFeature blueprintFeature:
                 blueprintFeature.IsClassFeature = true;
-            }
-        }
-        else
-        {
-            blueprintBuff.FxOnStart = new PrefabLink();
-            blueprintBuff.FxOnRemove = new PrefabLink();
-            blueprintBuff.IsClassFeature = true;
+                break;
+            case BlueprintItem blueprintItem:
+                blueprintItem.m_DisplayNameText = new();
+                blueprintItem.m_DescriptionText = new();
+                blueprintItem.m_FlavorText = new();
+                blueprintItem.m_NonIdentifiedNameText = new();
+                blueprintItem.m_NonIdentifiedDescriptionText = new();
+                break;
+            case BlueprintItemEnchantment itemEnchantment:
+                itemEnchantment.m_EnchantName = new();
+                itemEnchantment.m_Description = new();
+                itemEnchantment.m_Prefix = new();
+                itemEnchantment.m_Suffix = new();
+                break;
         }
     }
 
