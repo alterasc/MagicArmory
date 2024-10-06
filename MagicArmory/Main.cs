@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using System;
-using System.Reflection;
 using UnityModManagerNet;
 
 namespace MagicArmory;
@@ -23,7 +22,7 @@ static class Main
         modEntry.OnUnload = OnUnload;
 #endif
         HarmonyInstance = new Harmony(modEntry.Info.Id);
-        HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
+        HarmonyInstance.CreateClassProcessor(typeof(Patches)).Patch();
         return true;
     }
 
