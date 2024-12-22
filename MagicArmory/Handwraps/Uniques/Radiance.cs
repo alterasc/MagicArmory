@@ -10,7 +10,7 @@ namespace MagicArmory.Handwraps.Uniques;
 
 internal static class Radiance
 {
-    internal static void CreateRadiance(HandwrapsAdder.HandwrapsData handwrapsData)
+    internal static void CreateRadiance(HandwrapsData handwrapsData)
     {
         if (!Main.Settings.RadianceHandwraps)
         {

@@ -15,12 +15,20 @@ namespace MagicArmory.Handwraps.Components;
 /// Item enchantment that supresses listed enchantments on other items that user wields
 /// </summary>
 [TypeId("1d7f206e31e54744974db567f8b70529")]
-public class EnchantmentSuppressorEnchantment : ItemEnchantmentComponentDelegate<ItemEntity, EnchantmentSuppressorEnchantment.SuppressedEffectData>, IUnitEquipmentHandler
+public class EnchantmentSuppressorEnchantment : ItemEnchantmentComponentDelegate<ItemEntity, EnchantmentSuppressorEnchantment.SuppressedEffectData>,
+    IUnitEquipmentHandler,
+    IUnitEmptyHandWeaponHandler
 {
     public BlueprintEquipmentEnchantmentReference[] m_EnchantmentsToSuppress = [];
     private ReferenceArrayProxy<BlueprintEquipmentEnchantment, BlueprintEquipmentEnchantmentReference> EnchantmentsToSuppress => m_EnchantmentsToSuppress;
 
     public override void OnTurnOn()
+    {
+        Main.log.Log("OnTurnOn called");
+        Refresh();
+    }
+
+    private void Refresh()
     {
         if (Data.HasDisabled)
         {
@@ -30,6 +38,7 @@ public class EnchantmentSuppressorEnchantment : ItemEnchantmentComponentDelegate
 
         DisableEnchantments();
         Data.HasDisabled = true;
+        RemoveStale();
     }
 
     public override void OnTurnOff()
@@ -46,15 +55,23 @@ public class EnchantmentSuppressorEnchantment : ItemEnchantmentComponentDelegate
     {
         if (slot.Owner != Owner.Wielder) return;
 
-        Owner.Enchantments
-            .Where(e => e?.SourceItem?.HoldingSlot == slot)
-            .Where(e => e.Blueprint != OwnerBlueprint)
+        // collect all unarmed-buffing enchantments from all other items
+        // and suppress them
+        Owner.Wielder.Body.AllSlots
+            .Where(slot => slot.HasItem)
+            .Select(slot => slot.Item)
+            .Where(item => item != null && item != Owner)
+            .Distinct()
+            .SelectMany(item => item.Enchantments)
             .Where(e => EnchantmentsToSuppress.Contains(e.Blueprint))
             .Where(e => !Data.Enchantments.Any(x => x.FactId == e.UniqueId))
             .ForEach(e =>
             {
-                e.Deactivate();
-                Data.Enchantments.Add(e);
+                if (e.IsTurnedOn)
+                {
+                    e.Deactivate();
+                    Data.Enchantments.Add(e);
+                }
             });
 
         RemoveStale();
@@ -68,7 +85,6 @@ public class EnchantmentSuppressorEnchantment : ItemEnchantmentComponentDelegate
             if (e.Fact != null)
             {
                 e.Fact.Deactivate();
-                e.Fact.TurnOff();
             }
             else
             {
@@ -77,30 +93,41 @@ public class EnchantmentSuppressorEnchantment : ItemEnchantmentComponentDelegate
         }
     }
 
+    /// <summary>
+    /// Removes data entries that point at null fact
+    /// </summary>
     private void RemoveStale()
     {
-        for (int i = Data.Enchantments.Count - 1; i >= 0; i--)
-        {
-            if (Data.Enchantments[i].Fact == null)
-            {
-                Data.Enchantments.RemoveAt(i);
-            }
-        }
+        Data.Enchantments.RemoveAll(x => x.Fact == null);
     }
 
     private void DisableEnchantments()
     {
-        Owner.Enchantments
-            .Where(e => e.Blueprint != OwnerBlueprint)
+        Owner.Wielder.Body.AllSlots
+            .Where(slot => slot.HasItem)
+            .Select(slot => slot.Item)
+            .Where(item => item != null && item != Owner)
+            .Distinct()
+            .SelectMany(item => item.Enchantments)
             .Where(e => EnchantmentsToSuppress.Contains(e.Blueprint))
             .Where(e => !Data.Enchantments.Any(x => x.FactId == e.UniqueId))
             .ForEach(e =>
             {
-                e.Deactivate();
-                e.TurnOff();
-                Data.Enchantments.Add(e);
+                if (e.IsTurnedOn)
+                {
+                    e.Deactivate();
+                    Data.Enchantments.Add(e);
+                }
             });
     }
+
+    void IUnitEmptyHandWeaponHandler.HandleUnitEmptyHandWeaponUpdated()
+    {
+
+        Refresh();
+    }
+
+
     public class SuppressedEffectData
     {
         public bool HasDisabled = false;

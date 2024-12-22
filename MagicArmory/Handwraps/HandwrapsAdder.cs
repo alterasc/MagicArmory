@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 
 namespace MagicArmory.Handwraps;
-internal partial class HandwrapsAdder
+internal static class HandwrapsAdder
 {
     internal static HandwrapsData Data;
     internal static List<BlueprintEquipmentEnchantmentReference> CreateUnarmedOnlyEnhancements()
@@ -95,6 +95,7 @@ internal partial class HandwrapsAdder
         {
             SetFields(bp);
             init?.Invoke(bp);
+            bp.AddComponent<EquipmentRestrictionOnlyOneWraps>();
         });
     }
 
