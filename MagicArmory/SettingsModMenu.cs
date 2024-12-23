@@ -27,7 +27,7 @@ internal class SettingsModMenu
                         .BuildMyToggle("handwraps.enable", "Enable", true)
                         .BuildMyToggle("handwraps.shops", "Add to shops", true)
                         .BuildMyToggle("handwraps.finnean", "Finnean handwraps option", true)
-                        .BuildMyToggle("handwraps.radiance", "Radiance handwraps", false)
+                        .BuildMyToggle("handwraps.radiance", "Radiance handwraps", true)
         );
     }
 
