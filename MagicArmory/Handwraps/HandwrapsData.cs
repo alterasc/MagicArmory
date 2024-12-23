@@ -17,5 +17,7 @@ internal class HandwrapsData
     internal BlueprintEquipmentEnchantmentReference finneanChapter3Ench;
     internal BlueprintEquipmentEnchantmentReference brilliantEnergyEnch;
     internal BlueprintEquipmentEnchantmentReference masterworkEnch;
+    internal BlueprintEquipmentEnchantmentReference holy;
+    internal BlueprintEquipmentEnchantmentReference baneLiving;
 }
 
