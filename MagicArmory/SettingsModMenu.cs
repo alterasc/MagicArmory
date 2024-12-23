@@ -6,6 +6,7 @@ internal class SettingsModMenu
     internal static readonly string RootKey = "AlterAsc.MagicArmory".ToLower();
 
     public bool RadianceHandwraps => ModMenu.ModMenu.GetSettingValue<bool>(GetKey("handwraps.radiance"));
+    public bool FinneanHandwraps => ModMenu.ModMenu.GetSettingValue<bool>(GetKey("handwraps.finnean"));
 
     internal void Initialize()
     {
