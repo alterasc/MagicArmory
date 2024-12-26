@@ -66,7 +66,7 @@ internal static class Radiance
 
     internal static void CreateRadiance(HandwrapsData handwrapsData)
     {
-        if (Main.Settings.RadianceHandwraps)
+        if (MagicArmorySettings.Handwraps.Radiance)
         {
             Main.HarmonyInstance.CreateClassProcessor(typeof(RadiancePatches)).Patch();
         }
@@ -125,7 +125,7 @@ internal static class Radiance
                 handwrapsData.masterworkEnch
             ];
         });
-        if (Main.Settings.RadianceHandwraps)
+        if (MagicArmorySettings.Handwraps.Radiance)
         {
             RadianceDict.Add(Guid.Parse(radianceMasterWorkGuid), radianceMasterWorkWraps);
             var loot = Utils.GetBlueprint<BlueprintLoot>("92e368d7ac577d34c95ecc5fcac22781");
@@ -149,7 +149,7 @@ internal static class Radiance
                 handwrapsData.coldIronEnch
             ];
         });
-        if (Main.Settings.RadianceHandwraps)
+        if (MagicArmorySettings.Handwraps.Radiance)
         {
             RadianceDict.Add(Guid.Parse(radiancePlus1ITemGuid), radiancePlus1ITemWraps);
         }
@@ -172,7 +172,7 @@ internal static class Radiance
             ];
         });
 
-        if (Main.Settings.RadianceHandwraps)
+        if (MagicArmorySettings.Handwraps.Radiance)
         {
             RadianceDict.Add(Guid.Parse(radiancePlus2Guid), radiancePlus2Wraps);
         }
@@ -200,7 +200,7 @@ internal static class Radiance
             bp.m_Ability = Utils.GetBlueprintReference<BlueprintAbilityReference>("e8d005d22023483ea00e7263579c43cb");
         });
 
-        if (Main.Settings.RadianceHandwraps)
+        if (MagicArmorySettings.Handwraps.Radiance)
         {
             RadianceDict.Add(Guid.Parse(yaniel_Longsword4HolyAvengerGuid), radianceWrapsPlus4Good);
         }
@@ -228,7 +228,7 @@ internal static class Radiance
             bp.m_Ability = Utils.GetBlueprintReference<BlueprintAbilityReference>("e8d005d22023483ea00e7263579c43cb");
         });
 
-        if (Main.Settings.RadianceHandwraps)
+        if (MagicArmorySettings.Handwraps.Radiance)
         {
             RadianceDict.Add(Guid.Parse(yaniel_Longsword6HolyAvengerGuid), radianceWrapsPlus6Good);
         }
@@ -256,7 +256,7 @@ internal static class Radiance
             bp.m_Ability = Utils.GetBlueprintReference<BlueprintAbilityReference>("e8d005d22023483ea00e7263579c43cb");
         });
 
-        if (Main.Settings.RadianceHandwraps)
+        if (MagicArmorySettings.Handwraps.Radiance)
         {
             RadianceDict.Add(Guid.Parse(yaniel_Longsword4BaneLivingGuid), radianceWrapsPlus4Bad);
         }
@@ -284,7 +284,7 @@ internal static class Radiance
             bp.m_Ability = Utils.GetBlueprintReference<BlueprintAbilityReference>("e8d005d22023483ea00e7263579c43cb");
         });
 
-        if (Main.Settings.RadianceHandwraps)
+        if (MagicArmorySettings.Handwraps.Radiance)
         {
             RadianceDict.Add(Guid.Parse(yaniel_Longsword6BaneLivingGuid), radianceWrapsPlus6Bad);
         }

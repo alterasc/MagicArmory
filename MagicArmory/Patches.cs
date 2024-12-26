@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.JsonSystem;
 using MagicArmory.Handwraps;
+using MagicArmory.ModMenuHelpers;
 
 namespace MagicArmory;
 
@@ -18,7 +19,7 @@ internal class Patches
         if (_initialized) return;
         _initialized = true;
 
-        Main.Settings.Initialize();
+        ModMenuSettingsGenerator.Generate();
 
         var mulebackCord = MulebackCords.MulebackCords.AddMulebackCords();
         var beltofHurling = BeltOfMightyHurling.BeltOfMightyHurling.AddBeltOfMightyHurling();

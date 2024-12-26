@@ -67,7 +67,7 @@ internal static class Finnean
             ];
         });
 
-        if (Main.Settings.FinneanHandwraps)
+        if (MagicArmorySettings.Handwraps.Finnean)
         {
             var finneanFlag0 = Utils.GetBlueprintReference<BlueprintUnlockableFlagReference>("e50ce85131b64acbb14dc1cade2434d0");
             var finneanFlag1 = Utils.GetBlueprintReference<BlueprintUnlockableFlagReference>("10f9d67c98bf4796831ea5aa99e580b3");
