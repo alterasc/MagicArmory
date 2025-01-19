@@ -95,6 +95,7 @@ internal static class Finnean
                     c.m_PolymorphItems.Add(finneanWorkWraps3Lich.ToReference<BlueprintItemReference>());
                 }
             }
+            Main.log.Log("Added Finnean handwraps");
         }
     }
 }

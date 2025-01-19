@@ -69,6 +69,7 @@ internal static class Radiance
         if (MagicArmorySettings.Handwraps.Radiance)
         {
             Main.HarmonyInstance.CreateClassProcessor(typeof(RadiancePatches)).Patch();
+            Main.log.Log("Added Radiance handwraps");
         }
         RadianceMasterWork(handwrapsData);
         Radiance1(handwrapsData);

@@ -89,6 +89,29 @@ internal static class HandwrapsAdder
             });
             normalHandwrapsList.Add(normalWorkWraps.ToReference<BlueprintItemEquipmentUsableReference>());
         }
+        if (MagicArmorySettings.Handwraps.Shops)
+        {
+            // to base game
+            Vendors.WarCamp_QuartermasterVendorTable.AddItem(normalHandwrapsList[0]);
+            Vendors.Jeweler_Chapter3VendorTable.AddItem(normalHandwrapsList[0]);
+            Vendors.Jeweler_Chapter3VendorTable.AddItem(normalHandwrapsList[1]);
+            Vendors.Jeweler_Chapter3VendorTable.AddItem(normalHandwrapsList[2]);
+            Vendors.Jeweler_Chapter5VendorTable.AddItem(normalHandwrapsList[3]);
+            Vendors.RvanyVendorTable.AddItem(normalHandwrapsList[3]);
+            Vendors.Jeweler_Chapter5VendorTable.AddItem(normalHandwrapsList[4]);
+
+            // to DLC1
+            Vendors.Jeweler_DLC1VendorTable.AddItem(normalHandwrapsList[4], 6);
+
+            // to standalone DLC3
+            Vendors.DLC3_VendorTable_Equipment.AddItem(normalHandwrapsList[0], 5);
+            Vendors.DLC3_VendorTable_Equipment.AddItem(normalHandwrapsList[1], 5);
+            Vendors.DLC3_VendorTable_Equipment.AddItem(normalHandwrapsList[2], 5);
+            Vendors.DLC3_VendorTable_Equipment.AddItem(normalHandwrapsList[3], 5);
+            Vendors.DLC3_VendorTable_Equipment.AddItem(normalHandwrapsList[4], 5);
+
+            Main.log.Log("Added basic enchanted handwraps to shops");
+        }
     }
 
     internal static BlueprintItemEquipmentUsable CreateHandwraps(string name, Action<BlueprintItemEquipmentUsable> init)
