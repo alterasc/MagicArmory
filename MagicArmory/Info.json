@@ -2,12 +2,12 @@
   "Id": "MagicArmory",
   "DisplayName": "Magic Armory",
   "Author": "AlterAsc",
-  "Version": "0.2.0",
+  "Version": "1.0.0",
   "ManagerVersion": "0.25.0",
-  "GameVersion": "2.2.4",
+  "GameVersion": "2.5.0",
   "Requirements": [ "ModMenu-1.3.2" ],
   "AssemblyName": "MagicArmory.dll",
   "EntryMethod": "MagicArmory.Main.Load",
-  "HomePage": "",
+  "HomePage": "https://github.com/alterasc/MagicArmory",
   "Repository": "https://raw.githubusercontent.com/alterasc/MagicArmory/main/Repository.json"
 }

@@ -47,6 +47,11 @@ internal class BeltOfMightyHurling
             ];
         });
         Main.log.Log("Added Lesser Belt of Mighty Hurling");
+        if (MagicArmorySettings.BeltofMightyHurling.Shops)
+        {
+            Vendors.WarCamp_QuartermasterVendorTable.AddItem(item);
+            Main.log.Log("Added Lesser Belt of Mighty Hurling to shops");
+        }
         return item;
     }
 }

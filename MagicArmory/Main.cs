@@ -21,7 +21,7 @@ public static class Main
         modEntry.OnUnload = OnUnload;
 #endif
         HarmonyInstance = new Harmony(modEntry.Info.Id);
-        HarmonyInstance.CreateClassProcessor(typeof(Patches)).Patch();
+        HarmonyInstance.CreateClassProcessor(typeof(ModInit)).Patch();
         return true;
     }
 

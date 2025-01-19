@@ -46,6 +46,12 @@ internal class MulebackCords
             ];
         });
         Main.log.Log("Added Muleback Cords");
+        if (MagicArmorySettings.MulebackCords.Shops)
+        {
+            Vendors.Potions_DefendersHeartVendorTable.AddItem(item);
+            Vendors.Tailor_Chapter3VendorTable.AddItem(item);
+            Main.log.Log("Added Muleback Cords to shops");
+        }
         return item;
     }
 }
