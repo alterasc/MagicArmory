@@ -4,14 +4,14 @@ Adds some wondrous items from tabletop
 
 ### [Handwraps](https://aonprd.com/EquipmentWeaponsDisplay.aspx?ItemName=Handwraps)
 
-Handwraps are "weapons" that apply to unarmed attacks. Only unarmed, NOT natural attacks. Fists = yes, claws = no.
+Handwraps are "weapons" that apply to unarmed attacks. Only unarmed, NOT natural attacks. Fists = yes, claws = no.   
+They go into **belt slot**.
 
 So they can replace Amulet of Mighty Fists for unarmed fighters.
+   
+You're limited in equipping only one of them. To swap to another handwraps, first uneqiup equipped ones.   
 
-They go into belt slot and provide their bonus to unarmed attacks.   
-You're limited in equipping only one of them. To swap to another wraps first uneqiup equipped ones.   
-
-Basic versions (granting enhancement bonus from +1 to +5) are sold at vendors.
+Basic versions (granting enhancement bonus from +1 to +5) are sold at vendors, that sell amulet of mighty fists
 
 Finnean can transform into handwraps granting same bonuses.
 
