@@ -20,8 +20,10 @@ namespace MagicArmory.Handwraps.Uniques;
 
 internal static class Radiance
 {
-
     private static readonly Dictionary<Guid, BlueprintItem> RadianceDict = [];
+
+    private const string RADIANCE_HANDWRAPS_NAME = "Radiance (handwraps)";
+    private const string RADIANCE_HANDWRAPS_DESC = "These handwraps are a special form of the longsword Radiance.";
 
     /// <summary>
     /// Adds or remove handwraps version together with radiance
@@ -117,7 +119,7 @@ internal static class Radiance
 
         var radianceMasterWorkWraps = CreateHandwraps("RadianceWrapsMasterwork", bp =>
         {
-            bp.m_DisplayNameText = radianceMasterWorkSword.m_DisplayNameText;
+            bp.m_DisplayNameText = RADIANCE_HANDWRAPS_NAME.ToLocalized();
             bp.m_DescriptionText = radianceMasterWorkSword.m_DescriptionText;
             bp.m_FlavorText = radianceMasterWorkSword.m_FlavorText;
             bp.m_Cost = 0;
@@ -141,8 +143,8 @@ internal static class Radiance
 
         var radiancePlus1ITemWraps = CreateHandwraps("RadianceWrapsPlus1", bp =>
         {
-            bp.m_DisplayNameText = radiancePlus1ITemSword.m_DisplayNameText;
-            bp.m_DescriptionText = radiancePlus1ITemSword.m_DescriptionText;
+            bp.m_DisplayNameText = RADIANCE_HANDWRAPS_NAME.ToLocalized();
+            bp.m_DescriptionText = RADIANCE_HANDWRAPS_DESC.ToLocalized();
             bp.m_FlavorText = radiancePlus1ITemSword.m_FlavorText;
             bp.m_Cost = radiancePlus1ITemSword.m_Cost;
             bp.m_Enchantments = [
@@ -163,8 +165,8 @@ internal static class Radiance
 
         var radiancePlus2Wraps = CreateHandwraps("RadianceWrapsPlus2", bp =>
         {
-            bp.m_DisplayNameText = radiancePlus2Sword.m_DisplayNameText;
-            bp.m_DescriptionText = radiancePlus2Sword.m_DescriptionText;
+            bp.m_DisplayNameText = RADIANCE_HANDWRAPS_NAME.ToLocalized();
+            bp.m_DescriptionText = RADIANCE_HANDWRAPS_DESC.ToLocalized();
             bp.m_FlavorText = radiancePlus2Sword.m_FlavorText;
             bp.m_Cost = radiancePlus2Sword.m_Cost;
             bp.m_Enchantments = [
@@ -187,8 +189,8 @@ internal static class Radiance
 
         var radianceWrapsPlus4Good = CreateHandwraps("RadianceWrapsPlus4Good", bp =>
         {
-            bp.m_DisplayNameText = yaniel_Longsword4HolyAvengerSword.m_DisplayNameText;
-            bp.m_DescriptionText = yaniel_Longsword4HolyAvengerSword.m_DescriptionText;
+            bp.m_DisplayNameText = RADIANCE_HANDWRAPS_NAME.ToLocalized();
+            bp.m_DescriptionText = RADIANCE_HANDWRAPS_DESC.ToLocalized();
             bp.m_FlavorText = yaniel_Longsword4HolyAvengerSword.m_FlavorText;
             bp.m_Cost = yaniel_Longsword4HolyAvengerSword.m_Cost;
             bp.m_Enchantments = [
@@ -215,8 +217,8 @@ internal static class Radiance
 
         var radianceWrapsPlus6Good = CreateHandwraps("RadianceWrapsPlus6Good", bp =>
         {
-            bp.m_DisplayNameText = yaniel_Longsword6HolyAvengerSword.m_DisplayNameText;
-            bp.m_DescriptionText = yaniel_Longsword6HolyAvengerSword.m_DescriptionText;
+            bp.m_DisplayNameText = RADIANCE_HANDWRAPS_NAME.ToLocalized();
+            bp.m_DescriptionText = RADIANCE_HANDWRAPS_DESC.ToLocalized();
             bp.m_FlavorText = yaniel_Longsword6HolyAvengerSword.m_FlavorText;
             bp.m_Cost = yaniel_Longsword6HolyAvengerSword.m_Cost;
             bp.m_Enchantments = [
@@ -243,8 +245,8 @@ internal static class Radiance
 
         var radianceWrapsPlus4Bad = CreateHandwraps("RadianceWrapsPlus4Bad", bp =>
         {
-            bp.m_DisplayNameText = yaniel_Longsword4BaneLivingSword.m_DisplayNameText;
-            bp.m_DescriptionText = yaniel_Longsword4BaneLivingSword.m_DescriptionText;
+            bp.m_DisplayNameText = RADIANCE_HANDWRAPS_NAME.ToLocalized();
+            bp.m_DescriptionText = RADIANCE_HANDWRAPS_DESC.ToLocalized();
             bp.m_FlavorText = yaniel_Longsword4BaneLivingSword.m_FlavorText;
             bp.m_Cost = yaniel_Longsword4BaneLivingSword.m_Cost;
             bp.m_Enchantments = [
@@ -271,8 +273,8 @@ internal static class Radiance
 
         var radianceWrapsPlus6Bad = CreateHandwraps("RadianceWrapsPlus6Bad", bp =>
         {
-            bp.m_DisplayNameText = yaniel_Longsword6BaneLivingSword.m_DisplayNameText;
-            bp.m_DescriptionText = yaniel_Longsword6BaneLivingSword.m_DescriptionText;
+            bp.m_DisplayNameText = RADIANCE_HANDWRAPS_NAME.ToLocalized();
+            bp.m_DescriptionText = RADIANCE_HANDWRAPS_DESC.ToLocalized();
             bp.m_FlavorText = yaniel_Longsword6BaneLivingSword.m_FlavorText;
             bp.m_Cost = yaniel_Longsword6BaneLivingSword.m_Cost;
             bp.m_Enchantments = [
