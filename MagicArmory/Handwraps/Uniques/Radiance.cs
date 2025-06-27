@@ -120,7 +120,7 @@ internal static class Radiance
         var radianceMasterWorkWraps = CreateHandwraps("RadianceWrapsMasterwork", bp =>
         {
             bp.m_DisplayNameText = RADIANCE_HANDWRAPS_NAME.ToLocalized();
-            bp.m_DescriptionText = radianceMasterWorkSword.m_DescriptionText;
+            bp.m_DescriptionText = RADIANCE_HANDWRAPS_DESC.ToLocalized();
             bp.m_FlavorText = radianceMasterWorkSword.m_FlavorText;
             bp.m_Cost = 0;
             bp.m_Enchantments = [
