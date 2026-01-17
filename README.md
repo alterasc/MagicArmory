@@ -5,7 +5,7 @@ Adds some wondrous items from tabletop
 ### [Handwraps](https://aonprd.com/EquipmentWeaponsDisplay.aspx?ItemName=Handwraps)
 
 Handwraps are "weapons" that apply to unarmed attacks. Only unarmed, NOT natural attacks. Fists = yes, claws = no.   
-They go into **belt slot**.
+They go into **usable item belt slot**. In PnP they are weapons, but to not break all unarmed mechanics and to not take any existing equipment slot, usable items is the only place. They improve your unarmed strikes once they are placed there, no activation needed. You can have only one pair of handwraps equipped at the same time.
 
 So they can replace Amulet of Mighty Fists for unarmed fighters.
    
